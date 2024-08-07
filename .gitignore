@@ -1,1 +1,4 @@
 /SampleWebApp/target/
+/BookStoreApp/build/
+/BookStoreApp/dist/
+/BookStoreApp/nbproject/private/
