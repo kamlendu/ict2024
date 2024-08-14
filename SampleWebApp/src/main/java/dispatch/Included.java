@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlets;
+package dispatch;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author root
  */
-@WebServlet(name = "TestServlet", urlPatterns = {"/TestServlet"}, initParams = {
-    @WebInitParam(name = "city", value = "Surat"),
-    @WebInitParam(name = "district", value = "Bharuch")})
-public class TestServlet extends HttpServlet {
+@WebServlet(name = "Included", urlPatterns = {"/Included"})
+public class Included extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,45 +36,10 @@ public class TestServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TestServlet</title>");            
+            out.println("<title>Servlet Included</title>");            
             out.println("</head>");
             out.println("<body>");
-            
-        String city =     this.getInitParameter("city");
-        String district =     this.getInitParameter("district");
-       //  String city =   request.getServletContext().getInitParameter("city");
-       
-//       String names[] = request.getParameterValues("ename");
-//       
-//       for(String s : names)
-//       {
-//           out.println("<br/>"+s);
-//       }
-       
-       
-out.println("<br/>Query String :"+request.getQueryString());
-out.println("<br/>Request :"+request.getRemoteAddr());
-out.println("<br/>Local Port :"+request.getLocalPort());
-out.println("<br/>Locale :"+request.getLocale());
-out.println("<br/>SessionId :"+request.getSession().getId());
-
-       
-       
-//        String firstName = request.getParameter("fname");
-//        String lastName = request.getParameter("lname");
-//            
-//            
-//            out.println("<h1>Full Name : "+ firstName +" "+ lastName+ "</h1>");
-            
-           
-       
-       
-       
-       out.println("<h1>City :"+ city+"</h1>");
-             out.println("<h1>District :"+ district+"</h1>");
-      
-       
-       out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1> I am Included in Response</h1>");
             out.println("</body>");
             out.println("</html>");
         }

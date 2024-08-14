@@ -6,12 +6,13 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -61,14 +62,36 @@ public class HelloServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Hello World of Servlets !!!</h1>");
+ 
+           HttpSession session = request.getSession(true);
+         
+         session.setAttribute("username", "Smith");
+         
+         
+             
+        ServletContext ctx = request.getServletContext();
+        
+        ctx.setAttribute("company", "XYZ Pvt. Ltd.");
             
-            String firstName = request.getParameter("fname");
-            String lastName = request.getParameter("lname");
+        if(session.getAttribute("username").toString().equals("Smith"))
+         {
+             response.sendRedirect("http://localhost:8080/SampleWebApp/AnotherServlet");
+         }
             
             
-            out.println("<h1>Full Name : "+ firstName +" "+ lastName+ "</h1>");
             
-//            Enumeration names =request.getHeaderNames();
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+//          Enumeration names =request.getHeaderNames();
 //            
 //            while(names.hasMoreElements())
 //            {
