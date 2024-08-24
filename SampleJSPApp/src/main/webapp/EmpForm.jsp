@@ -13,7 +13,7 @@
     </head>
     <body>
     <center>
-        <form action="Third.jsp" method="POST">
+        <form action="TryBean3.jsp" method="POST">
             <table width="50%">  
                 <tr><td>     Emp no</td> 
                     <td> <input type="text" name="empno" value="<%=emp.getEmpno() %>"></td><td style="color:red"><%=emp.getError("empno")%> </td></tr>

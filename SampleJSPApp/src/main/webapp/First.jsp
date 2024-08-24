@@ -31,6 +31,13 @@
         <h2>
             The current Date is <%=new Date().toString()%>
             
+            <%
+                session.setAttribute("username", "admin");
+                
+                 application.setAttribute("company", "ABC Ltd.");
+                
+                %>
+            
         </h2>
         
     </body>

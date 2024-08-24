@@ -16,6 +16,13 @@
         First Name : <%=request.getParameter("first") %>
       <br/>  Last Name : <%=request.getParameter("last") %>
        
+      
+    <br/>  User Name : <%=session.getAttribute("username") %>
+     <br/> Company : <%=application.getAttribute("company") %>
+     <%
+         session.invalidate();
+         %>
+      
      <br/>   <h1>This is Third JSP</h1>
     </body>
 </html>
