@@ -1,0 +1,4 @@
+it/currencymodule/resources/JakartaEE8Resource.class
+ejb/ConverterBean.class
+it/currencymodule/JakartaRestConfiguration.class
+ejb/ConverterRemote.class

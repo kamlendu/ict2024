@@ -1,0 +1,4 @@
+ejb/ShoppingBeanRemote.class
+it/shopejbmodule/resources/JakartaEE8Resource.class
+it/shopejbmodule/JakartaRestConfiguration.class
+ejb/ShoppingBean.class
