@@ -13,3 +13,12 @@
 /LogicModule/target/
 /EJBWebClient/target/
 /DockerWebApp/target/
+/MessagingModule/nbproject/private/
+/MessagingModule/build/
+/MessagingModule/dist/
+/MessageClient/target/
+/RecieverModule/nbproject/private/
+/EJBRecieverModule/nbproject/private/
+/EJBRecieverModule/build/
+/EJBRecieverModule/dist/
+/SendRecieveApp/target/
