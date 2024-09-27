@@ -1,0 +1,6 @@
+it/jpaapp/resources/JakartaEE8Resource.class
+servlets/DataServlet.class
+entity/BookMaster.class
+it/jpaapp/JakartaRestConfiguration.class
+ejb/DataBeanLocal.class
+ejb/DataBean.class
