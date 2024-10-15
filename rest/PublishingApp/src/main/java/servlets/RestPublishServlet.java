@@ -4,7 +4,7 @@
  */
 package servlets;
 
-import ejb.PublishBeanLocal;
+import client.PublishClient;
 import entity.Address;
 import entity.Customer;
 import entity.Subscription;
@@ -12,21 +12,30 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author root
  */
-@WebServlet(name = "PublishServlet", urlPatterns = {"/PublishServlet"})
-public class PublishServlet extends HttpServlet {
+@WebServlet(name = "RestPublishServlet", urlPatterns = {"/RestPublishServlet"})
+public class RestPublishServlet extends HttpServlet {
     
-    @EJB PublishBeanLocal pbl;
+PublishClient pbl;
+Response rs;
+Collection<Customer> custs;
+GenericType<Collection<Customer>> gcusts;
+Collection<Address> addresses;
+GenericType<Collection<Address>> gaddresses;
+Collection<Subscription> subs;
+GenericType<Collection<Subscription>> gsubs;
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,40 +54,55 @@ public class PublishServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PublishServlet</title>");            
+            out.println("<title>Servlet RestPublishServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h3>");
-            
+               out.println("<h3>");
+               
+               pbl = new PublishClient();
+               
+               custs = new ArrayList<>();
+               gcusts = new GenericType<Collection<Customer>>(){};
+               addresses = new ArrayList<>();
+               gaddresses = new GenericType<Collection<Address>>(){};
+               subs = new ArrayList<>();
+               gsubs = new GenericType<Collection<Subscription>>(){};
             //pbl.addCustomer("Arvind", "Shah");
-           // pbl.addAddressToCustomer("D-321", "Surat", "Gujarat", "395007", 10);
-           // pbl.addAddressToCustomer("E-1", "Vadodara", "Gujarat", "380001", 10);
+           // pbl.addAddressToCustomer("D-321", "Surat", "Gujarat", "395007", "10");
+           // pbl.addAddressToCustomer("E-1", "Vadodara", "Gujarat", "380001", "10");
            
            
            Collection<Integer> sids = new ArrayList<Integer>();
            sids.add(1); sids.add(2); sids.add(3);
            
-           //pbl.addSubscriptionsToCustomer(10, sids);
-          // pbl.removeSubscriptionsToCustomer(10, sids);
-            
-         // pbl.removeAddressFromCustomer(10, 6);
-         // pbl.removeAddressFromCustomer(10, 7);
+           //pbl.addSubscriptionsToCustomer(sids, "10");
+          // pbl.removeSubscriptionsToCustomer(sids, "10");
+           
          
-        // pbl.removeCustomer(10);
+          //pbl.removeAddressFromCustomer("10", "6");
+          //pbl.removeAddressFromCustomer("10", "7");
+         
+         pbl.removeCustomer("10");
             
-            Collection<Customer> custs = pbl.getAllCustomers();
+            rs = pbl.getAllCustomers(Response.class);
+        
+             custs = rs.readEntity(gcusts);
             
             for(Customer c : custs)
             {
                 
             out.println("<br/> Cust id :"+ c.getCustomerID()+ " Name : "+ c.getFirstName()+ " "+ c.getLastName());
-            Collection<Address> addresses = pbl.getAddressesOfCustomer(c.getCustomerID());
+             
+            rs = pbl.getAddressesOfCustomer(Response.class, String.valueOf(c.getCustomerID()));
+            addresses = rs.readEntity(gaddresses);
             
             for(Address a : addresses)
             {
                out.println("<br/> AddressId : "+ a.getAddressId()+ " Street : "+ a.getStreet()+ " City : "+ a.getCity()+ " State :"+ a.getState());
             }
-            Collection<Subscription> subs = pbl.getSubscriptionOfCustomer(c.getCustomerID());
+            
+            rs = pbl.getSubscriptionOfCustomer(Response.class,String.valueOf(c.getCustomerID()));
+            subs = rs.readEntity(gsubs);
             
             for(Subscription s : subs)
             {
@@ -88,7 +112,10 @@ public class PublishServlet extends HttpServlet {
             
             }
             out.println("</h3>");
-            out.println("<h1>Servlet PublishServlet at " + request.getContextPath() + "</h1>");
+            
+            
+            
+            out.println("<h1>Servlet RestPublishServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

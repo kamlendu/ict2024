@@ -17,4 +17,9 @@ public class JakartaEE8Resource {
                 .ok("ping")
                 .build();
     }
+
+
+
+
+
 }

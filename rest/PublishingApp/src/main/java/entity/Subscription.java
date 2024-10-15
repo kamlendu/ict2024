@@ -6,6 +6,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -87,7 +88,7 @@ public class Subscription implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-
+    @JsonbTransient
     public Collection<Customer> getCustomerCollection() {
         return customerCollection;
     }

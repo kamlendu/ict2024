@@ -6,6 +6,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -96,7 +97,7 @@ public class Customer implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
+@JsonbTransient
     public Collection<Subscription> getSubscriptionCollection() {
         return subscriptionCollection;
     }
@@ -105,6 +106,7 @@ public class Customer implements Serializable {
         this.subscriptionCollection = subscriptionCollection;
     }
 
+    @JsonbTransient
     public Collection<Address> getAddressCollection() {
         return addressCollection;
     }

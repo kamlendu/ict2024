@@ -1,8 +1,14 @@
-ejb/PublishBeanLocal.class
+servlets/RestPublishServlet$1.class
 servlets/PublishServlet.class
 ejb/PublishBean.class
+client/PublishClient.class
+servlets/RestPublishServlet$2.class
+servlets/RestPublishServlet$3.class
+entity/Customer.class
+ejb/PublishBeanLocal.class
+rest/PublishResource.class
 entity/Address.class
 it/publishingapp/JakartaRestConfiguration.class
+servlets/RestPublishServlet.class
 it/publishingapp/resources/JakartaEE8Resource.class
-entity/Customer.class
 entity/Subscription.class
