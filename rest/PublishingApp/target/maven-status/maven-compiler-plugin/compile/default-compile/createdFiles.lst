@@ -1,0 +1,8 @@
+ejb/PublishBeanLocal.class
+servlets/PublishServlet.class
+ejb/PublishBean.class
+entity/Address.class
+it/publishingapp/JakartaRestConfiguration.class
+it/publishingapp/resources/JakartaEE8Resource.class
+entity/Customer.class
+entity/Subscription.class
