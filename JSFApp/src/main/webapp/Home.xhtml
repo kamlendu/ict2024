@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:messages style="color:red"/>
+        <h:form>
+            
+            <h:panelGrid columns="2" border="1">
+           
+            <h:outputLabel for="p" value="Name"/>
+            <h:inputText id="p" required="true" requiredMessage="Name can not be blank"   value="#{person.pname}"/> 
+            <h:outputLabel for="pass" value="Password"/>
+            <h:inputSecret id="pass" value="#{person.password}"/>           
+            <h:outputLabel for="email" value="Email"/>
+            <h:inputText id="email" value="#{person.email}"/>           
+             <h:outputLabel for="sal" value="Salary"/>
+            <h:inputText id="sal" value="#{person.salary}"/>  
+           
+            <h:outputLabel for="gen" value="Gender"/>
+            
+            <h:selectOneRadio id="gen" value="#{person.gender}">
+                
+                <f:selectItem itemLabel="Male" itemValue="M"/>
+                <f:selectItem itemLabel="Female" itemValue="F"/>
+              
+            </h:selectOneRadio>
+            
+            <h:outputLabel for="c" value="City"/>
+            <h:selectOneMenu id="c" value="#{person.city}">
+            
+                 <f:selectItem itemLabel="Surat" itemValue="surat"/>
+                <f:selectItem itemLabel="Vadodara" itemValue="vadodara"/>
+                 <f:selectItem itemLabel="Chennai" itemValue="chennai"/>
+                <f:selectItem itemLabel="Mumbai" itemValue="mumbai"/>
+            
+                
+            </h:selectOneMenu>
+              <h:outputLabel for="h" value="Hobbies"/>
+            
+            <h:selectManyCheckbox id="h" value="#{person.hobbies}">
+            
+                 <f:selectItem itemLabel="Singing" itemValue="singing"/>
+                <f:selectItem itemLabel="Reading" itemValue="reading"/>
+             <f:selectItem itemLabel="Stamp Collection" itemValue="stampcollection"/>
+                <f:selectItem itemLabel="Swimming" itemValue="swimming"/>
+            
+            </h:selectManyCheckbox>     
+            
+            
+            <h:commandButton id="cmd" value="Submit" action="#{person.handle}"/>
+            <h:commandButton id="rst" value="Reset"/>
+            
+            </h:panelGrid>
+        </h:form>
+        
+        
+        
+        
+    </h:body>
+</html>

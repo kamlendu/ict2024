@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       
+        <h:dataTable value="#{tableBean.books}" var="b" border="1">
+            <f:facet name="header">
+                This is the list of Books
+            </f:facet>
+            <h:column>
+                <f:facet name="header">
+                Book Name
+            </f:facet>
+                <h:outputText value="#{b.bookName}"/>  
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                Author Name
+            </f:facet>
+                <h:outputText value="#{b.authorName}"/>  
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+               Publisher Name
+            </f:facet>
+                <h:outputText value="#{b.publisherName}"/>  
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                Synopsis
+            </f:facet>
+                <h:outputText value="#{b.synopsis}"/>  
+            </h:column>
+        
+        </h:dataTable>
+        
+        
+        
+    </h:body>
+</html>

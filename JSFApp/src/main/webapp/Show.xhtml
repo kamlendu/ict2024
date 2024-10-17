@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        The Name of the person is : ${person.pname}
+       <br/> The Password of the person is : ${person.password}
+       <br/> The Email of the person is : ${person.email}
+        <br/> The Salary of the person is : ${person.salary}
+         <br/> The Gender of the person is : ${person.gender}
+          <br/> The City of the person is : ${person.city}
+          <br/>
+          <c:forEach var="hobby" items="${person.hobbies}">
+           <br/>   <h:outputText value="${hobby}"/>
+          </c:forEach>
+        
+    </h:body>
+</html>
