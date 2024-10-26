@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h:form>
+            
+            <h:selectOneMenu id="n" value="#{eventBean.person}" onchange="document.forms[0].submit()" valueChangeListener="#{eventBean.changeEvent}">
+                <f:selectItems var="nm" value="#{eventBean.names}" itemLabel="#{nm}" itemValue="#{nm}"/>                
+            </h:selectOneMenu>
+            <br/>
+            <h:commandButton id="cmd" value="Click Me" actionListener="#{eventBean.handle}"/>
+            
+            
+        </h:form>
+        <br/>
+        <h:outputText value="#{eventBean.person}"/><br/>
+        <h:outputText value="#{eventBean.msg1}"/><br/><!-- comment -->
+        <h:outputText value="#{eventBean.msg2}"/>
+        
+    </h:body>
+</html>

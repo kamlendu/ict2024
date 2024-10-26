@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="title"/>
+        <cc:attribute name="namelabel"/>
+        <cc:attribute name="passwordlabel"/>
+        <cc:attribute name="cdibean"/>
+        <cc:attribute name="sublabel"/>
+         <cc:attribute name="reslabel"/>
+         <cc:attribute name="loginaction" method-signature="java.lang.String action()"/>
+        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h2>#{cc.attrs.title}</h2>
+       
+            
+            <h:form>
+              <h:panelGrid columns="2" border="1">
+                <h:outputLabel for="nm" value="#{cc.attrs.namelabel}"/>     
+                <h:inputText id="nm" value="#{cc.attrs.cdibean.username}"/>
+                <h:outputLabel for="pass" value="#{cc.attrs.passwordlabel}"/>     
+                <h:inputText id="pass" value="#{cc.attrs.cdibean.password}"/>
+                <h:commandButton id="sub" value="#{cc.attrs.sublabel}" action="#{cc.attrs.loginaction}"/>
+                <h:commandButton id="res" value="#{cc.attrs.reslabel}"/>
+                
+                </h:panelGrid>
+            </h:form>
+            
+            
+            
+        
+        
+        
+        
+    </cc:implementation>
+</html>

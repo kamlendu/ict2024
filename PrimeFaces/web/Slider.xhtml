@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+            <h:form id="form">  
+      
+        <p:growl id="growl" showDetail="true" />  
+      
+        <h3>Input Text Slider</h3>  
+        <h:panelGrid columns="1" style="margin-bottom:10px">  
+            <p:inputText id="txt1" value="#{sliderBean.number1}" />  
+            <p:slider for="txt1"/>  
+            
+        </h:panelGrid>  
+          
+        <h3>Hidden Input Slider with Display Value</h3>  
+        <h:panelGrid columns="1" style="margin-bottom:10px">  
+            <h:panelGroup>  
+                <h:outputText value="Set ratio to %"/>  
+                <h:outputText id="output" value="#{sliderBean.number2}"/>  
+            </h:panelGroup>   
+              
+            <h:inputHidden id="txt2" value="#{sliderBean.number2}" />  
+            <p:slider for="txt2" display="output" style="width:200px" />  
+        </h:panelGrid>  
+          
+        <h3>Slider with Step Factor</h3>  
+        <h:panelGrid columns="1" style="margin-bottom:10px">  
+            <p:inputText id="txt3" value="#{sliderBean.number3}"/>  
+            <p:slider for="txt3" step="10"/>  
+        </h:panelGrid>  
+          
+        <h3>Vertical Slider</h3>  
+        <h:panelGrid columns="1" style="margin-bottom:10px">  
+            <p:inputText id="txt4" value="#{sliderBean.number4}"/>  
+            <p:slider for="txt4" type="vertical" />  
+        </h:panelGrid>  
+      
+        <h3>Ajax Slider</h3>  
+        <h:panelGrid columns="1" style="margin-bottom:10px">  
+            <p:inputText id="txt5" value="#{sliderBean.number5}" />  
+            <p:slider for="txt5">  
+                <p:ajax event="slideEnd" listener="#{sliderBean.onSlideEnd}" update="growl" />  
+            </p:slider>  
+        </h:panelGrid>  
+      
+        <p:commandButton value="Submit" update="display" oncomplete="dialog.show()" />  
+          
+        <p:dialog header="Slider Values" widgetVar="dialog"   
+            showEffect="bounce" hideEffect="fade" width="200">  
+              
+            <h:panelGrid id="display" columns="1" cellpadding="5">  
+                <h:outputText value="Number 1: #{sliderBean.number1}" />  
+                  
+                <h:outputText value="Number 2: #{sliderBean.number2}" />  
+                  
+                <h:outputText value="Number 3: #{sliderBean.number3}" />  
+                  
+                <h:outputText value="Number 4: #{sliderBean.number4}" />  
+      
+                <h:outputText value="Number 5: #{sliderBean.number5}" />  
+            </h:panelGrid>  
+              
+        </p:dialog>     
+          
+    </h:form>  
+                          
+        
+
+    </h:body>
+</html>

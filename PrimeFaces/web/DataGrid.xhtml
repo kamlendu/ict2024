@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">  
+  
+    <p:dataGrid var="car" value="#{tableBean.cars}" columns="3"  
+        rows="12" paginator="true"       
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="9,12,15" style="font-size: 10px;">  
+          
+        <p:column>  
+            <p:panel header="#{car.model}" style="text-align:center;font-size: 10px;">  
+                <h:panelGrid columns="1" style="width:100%">  
+                    <p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/>   
+                  
+                    <h:outputText value="#{car.year}" />  
+                      
+                    <p:commandLink update=":form:carDetail" oncomplete="carDialog.show()" title="View Detail">  
+                        <p:graphicImage value="/images/search.png" height="20" width="20"/>   
+                        <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" />
+                        <h:outputText value="#{car.model}" />   
+                    </p:commandLink>  
+                </h:panelGrid>  
+            </p:panel>  
+        </p:column>  
+  
+    </p:dataGrid>  
+      
+    <p:dialog header="Car Detail" widgetVar="carDialog" modal="true">  
+        <p:outputPanel id="carDetail" style="text-align:center;" layout="block">  
+          
+            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
+              
+            <h:panelGrid  columns="2" cellpadding="5">  
+                <h:outputLabel for="modelNo" value="Model No: " />  
+                <h:outputText id="modelNo" value="#{tableBean.selectedCar.model}" />  
+                  
+                <h:outputLabel for="year" value="Year: " />  
+                <h:outputText id="year" value="#{tableBean.selectedCar.year}" />  
+                  
+                <h:outputLabel for="color" value="Color: " />  
+                <h:outputText id="color" value="#{tableBean.selectedCar.color}" style="color:#{tableBean.selectedCar.color}"/>  
+            </h:panelGrid>  
+        </p:outputPanel>  
+    </p:dialog>  
+  
+</h:form>  
+    </h:body>
+</html>

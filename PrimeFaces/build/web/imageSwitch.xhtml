@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="font-size: 10px;">
+        <h3>Wipe with Manual Controls</h3>  
+        <p:commandButton type="button" onclick="switcher.previous();"  
+                         icon="ui-icon-circle-triangle-w"/>  
+        <p:commandButton type="button" onclick="switcher.next();"  
+                         icon="ui-icon-circle-triangle-e"/>  
+
+        <p:imageSwitch effect="wipe" widgetVar="switcher" slideshowAuto="false">  
+            <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                <p:graphicImage value="/images/galleria/#{image}" />  
+            </ui:repeat>  
+        </p:imageSwitch>  
+
+        <h3>Fade</h3>  
+        <p:imageSwitch effect="fade">  
+            <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                <p:graphicImage value="/images/galleria/#{image}" />  
+            </ui:repeat>  
+        </p:imageSwitch>  
+
+        <h3>Zoom</h3>  
+        <p:imageSwitch effect="zoom">  
+            <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                <p:graphicImage value="/images/galleria/#{image}" />  
+            </ui:repeat>  
+        </p:imageSwitch>  
+
+        <h3>TurnDown</h3>  
+        <p:imageSwitch effect="turnDown">  
+            <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                <p:graphicImage value="/images/galleria/#{image}" />  
+            </ui:repeat>  
+        </p:imageSwitch>  
+
+        <h3>Shuffle</h3>  
+        <p:imageSwitch effect="shuffle">  
+            <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                <p:graphicImage value="/images/galleria/#{image}" />  
+            </ui:repeat>  
+        </p:imageSwitch>  
+
+        <h3>Dialog Integration</h3>  
+        <p:commandButton type="button" value="Show" onclick="dialog.show()" />  
+
+        <p:dialog header="Images" widgetVar="dialog" modal="true" draggable="false" resizable="false"  
+                  width="425" height="250">  
+
+            <p:imageSwitch effect="fade">  
+                <ui:repeat value="#{imageSwitchBean.images}" var="image">  
+                    <p:graphicImage value="/images/galleria/#{image}" />  
+                </ui:repeat>  
+            </p:imageSwitch>  
+        </p:dialog>
+    </h:body>
+</html>
+

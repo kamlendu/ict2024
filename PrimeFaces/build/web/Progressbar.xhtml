@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        
+        <title>Facelet Title</title>
+        <script type="text/javascript">  
+    function start() {  
+        startButton1.disable();  
+        window['progress'] = setInterval(function() {  
+            var oldValue = pbClient.getValue(),  
+            newValue = oldValue + 10;  
+  
+            pbClient.setValue(pbClient.getValue() + 10);  
+  
+            if(newValue == 100) {  
+                clearInterval(window['progress']);  
+            }  
+  
+  
+        }, 1000);  
+    }  
+  
+    function cancel() {  
+        clearInterval(window['progress']);  
+        pbClient.setValue(0);  
+        startButton1.enable();  
+    }  
+        </script>  
+    </h:head>
+    <h:body>
+        <h:form style="font-size: 10px;">
+            <p:growl id="growl" />  
+
+            <h3>Client Side ProgressBar</h3>  
+            <p:commandButton value="Start" id="start" type="button" onclick="start()" widgetVar="startButton1"/>  
+            <p:commandButton value="Cancel" id="cancel" type="button" onclick="cancel()" />  
+
+            <p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px"/>  
+            
+
+        </h:form>
+    </h:body>
+</html>
