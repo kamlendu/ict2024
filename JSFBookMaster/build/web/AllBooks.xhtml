@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="newTemplate.xhtml">
+    <ui:define name="top"> Great Things may not look good</ui:define>
+    <ui:define name="left"> <ul>
+                        <li> One </li>
+                        <li> Two </li>
+                        <li> Three </li>
+                        <li> Four </li>
+
+                    </ul></ui:define>
+     <ui:define name="content">
+    
+   <!-- content below will be trimmed -->
+
+        <br></br><br></br>
+
+        <h:form>
+        <h:dataTable id="dt1" value="#{BookMasterBean.allBookInfo}" var="book" bgcolor="#F1F1F1" border="10" cellpadding="5" cellspacing="3" first="0"  width="50%" dir="LTR" frame="hsides" rules="all" summary="This is a JSF code to create dataTable." >
+
+                <f:facet name="header">
+                        <h:outputText value="Book Detail" />
+                </f:facet>
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Book Name"/>
+                        </f:facet>
+                    <h:outputText value="#{book.bookName}"></h:outputText>
+                </h:column>
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Author"/>
+                        </f:facet>
+                    <h:outputText value="#{book.authorName}"></h:outputText>
+                </h:column>
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Publisher"/>
+                        </f:facet>
+                    <h:outputText value="#{book.publisherName}"></h:outputText>
+                </h:column>
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Edit"/>
+                        </f:facet>
+                    <h:commandLink value="Edit" action="#{BookMasterBean.redirectToEditBookDetail}">
+                        <f:setPropertyActionListener value="#{book}" target="#{BookMasterBean.currentBook}"/>
+                    </h:commandLink>
+                </h:column>
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Delete"/>
+                        </f:facet>
+                    <h:commandLink value="Delete" action="#{BookMasterBean.deleteBookDetail}">
+                        <f:setPropertyActionListener value="#{book.bookID}" target="#{BookMasterBean.id}"/>
+                    
+                    </h:commandLink>
+                </h:column>
+        </h:dataTable>
+            <h:commandButton value="Add New Book" action="#{BookMasterBean.redirectToAddBookDetail}"></h:commandButton>
+        </h:form>
+         
+        </ui:define>
+      </ui:composition>
+     </html>

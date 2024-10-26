@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <style type="text/css">
+            body{
+                font-size: 1.3em;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <center>
+                <h2>Ajaxical Login</h2>
+                <h:messages id="hmsg" />
+                <table style="background: whitesmoke;">
+                    <tr>
+                        <td>
+                            Username :
+                        </td>
+                        <td>
+                            <h:inputText value="#{indexBean.userName}" required="true" requiredMessage="Username cannot be empty." />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Password :
+                        </td>
+                        <td>
+                            <h:inputSecret value="#{indexBean.password}" required="true" requiredMessage="Password cannot be empty." />
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="2">
+                            <h:commandButton id="cmdLogin" value="Login" action="#{indexBean.login}">
+                                <f:ajax event="action" execute="@form" render="msg hmsg" />
+                            </h:commandButton>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="2">
+                            Not Registered? <a href="Register.jsf">Click Here</a> to Register
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <h:outputText id="msg" value="#{indexBean.msg}" style="color: red;"/>
+
+                        </td>
+                    </tr>
+
+
+                </table>
+
+                <h3>Try going directly to restricted section?? <a href="Restricted/Home.jsf" >Click Here</a> </h3>
+
+            </center>
+        </h:form>
+        <br />
+        <!--<h:link outcome="/tbluser/List" value="Show All Tbluser Items"/>-->
+    </h:body>
+
+</html>
+

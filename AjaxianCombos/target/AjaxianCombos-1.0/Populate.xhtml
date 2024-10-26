@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+        <h:form>            
+            <h:panelGrid columns="2">
+                <h:outputLabel for="state" value="State"/>
+                <h:selectOneMenu id="state" value="#{populateBean.stateid}">
+                  <f:selectItem itemLabel="---Select----" noSelectionOption="true" />
+                  <f:selectItems value="#{populateBean.states}" var="st" itemLabel="#{st.stateName}" itemValue="#{st.stateId}"/>
+                    <f:ajax event="valueChange" execute="state" render="district" listener="#{populateBean.getDistricts()}"/>
+
+                </h:selectOneMenu>
+                
+                <h:outputLabel for="district" value="District"/>
+                <h:selectOneMenu id="district" value="#{populateBean.districtid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true" />                
+                 <f:selectItems value="#{populateBean.districts}" var="dis" itemLabel="#{dis.districtName}" itemValue="#{dis.districtId}"/>
+                   <f:ajax event="valueChange" execute="district" render="city" listener="#{populateBean.getCities()}"/>
+                   <f:ajax event="valueChange" execute="district" render="taluka" listener="#{populateBean.getTalukas()}"/>
+
+                </h:selectOneMenu>
+                </h:panelGrid> 
+            <hr/>
+            <h:outputText value="Section For People living in Urban Areas"/> 
+            <h:panelGrid columns="2">
+                
+                <h:outputLabel for="city" value="City"/>
+                 <h:selectOneMenu id="city" value="#{populateBean.cityid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true"  />                  
+                 <f:selectItems  value="#{populateBean.cities}" var="c" itemLabel="#{c.cityName}" itemValue="#{c.cityId}"/>
+                 <f:ajax event="valueChange" execute="city" render="zone" listener="#{populateBean.getZones()}"/>
+
+                </h:selectOneMenu>
+                
+                <h:outputLabel for="zone" value="Zone"/>
+                 <h:selectOneMenu id="zone" value="#{populateBean.zoneid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true"  />                  
+                 <f:selectItems  value="#{populateBean.zones}" var="z" itemLabel="#{z.zoneName}" itemValue="#{z.zoneId}"/>
+                <f:ajax event="valueChange" execute="zone" render="ward" listener="#{populateBean.getWards()}"/>
+
+                </h:selectOneMenu>
+                
+                <h:outputLabel for="ward" value="Ward"/>
+                 <h:selectOneMenu id="ward" value="#{populateBean.wardid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true"  />                  
+                 <f:selectItems  value="#{populateBean.wards}" var="w" itemLabel="#{w.wardName}" itemValue="#{w.wardId}"/>
+                </h:selectOneMenu>
+                </h:panelGrid>
+                
+            
+            
+                <hr/>
+                 <h:outputText value="Section For People living in Rural Areas"/> 
+                <h:panelGrid columns="2">
+                 <h:outputLabel for="taluka" value="Taluka"/>
+                 <h:selectOneMenu id="taluka" value="#{populateBean.talukaid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true"  />                  
+                 <f:selectItems  value="#{populateBean.talukas}" var="t" itemLabel="#{t.talukaName}" itemValue="#{t.talukaId}"/>
+               <f:ajax event="valueChange" execute="taluka" render="village" listener="#{populateBean.getWards()}"/>
+
+                </h:selectOneMenu>
+                 
+                
+                 <h:outputLabel for="village" value="village"/>
+                 <h:selectOneMenu id="village" value="#{populateBean.villageid}">
+                 <f:selectItem itemLabel="---Select----" noSelectionOption="true"  />                  
+                 <f:selectItems  value="#{populateBean.villages}" var="v" itemLabel="#{v.villageName}" itemValue="#{v.villageId}"/>
+               
+                </h:selectOneMenu>
+
+                
+            </h:panelGrid>         
+        </h:form>
+        
+        
+        
+    </h:body>
+</html>

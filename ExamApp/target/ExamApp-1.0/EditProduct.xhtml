@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:panelGrid columns="2" border="1">
+            <h:outputLabel for="p" value="Product Name"/>
+            <h:inputText id="p" value="#{productBean.current.productname}"/>
+            <h:outputLabel for="pr" value="Price"/>
+            <h:inputText id="pr" value="#{productBean.current.price}"/>
+            <h:outputLabel for="c" value="Categories"/>
+            <h:selectOneMenu id="c" value="#{productBean.current.category.id}" >
+                <f:selectItems value="#{productBean.categories}"  var="c" itemLabel="#{c.name}" itemValue="#{c.id}"/>
+            </h:selectOneMenu>
+            <h:commandButton id="cmd" value="Update" action="#{productBean.updateProduct}"/>
+            <h:commandButton id="cmd1" value="Reset"/>
+            
+        </h:panelGrid>
+        </h:form>
+
+    </h:body>
+</html>

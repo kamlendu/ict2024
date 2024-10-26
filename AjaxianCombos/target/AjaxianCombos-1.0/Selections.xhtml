@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+
+
+                <h:outputLabel for="state" value="State"/>
+                <p:selectCheckboxMenu id="state"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select States"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.stateids}">
+                    <f:selectItems value="#{selectionBean.states}" var="st" itemLabel="#{st.stateName}" itemValue="#{st.stateId}" />           
+
+                    <f:ajax event= "itemSelect" execute="state" render="district" listener="#{selectionBean.populateDistricts()}"/>
+                    <f:ajax event= "itemUnselect" execute="state" render="district" listener="#{selectionBean.populateDistricts()}"/>
+                     <f:ajax event= "itemUnselect" execute="state" render="city" listener="#{selectionBean.populateCities()}"/>
+                    <f:ajax event= "itemUnselect" execute="state" render="taluka" listener="#{selectionBean.populateTalukas()}"/>
+                  
+                </p:selectCheckboxMenu>
+
+                <h:outputLabel for="district" value="District"/>
+                <p:selectCheckboxMenu id="district"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Districts"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.districtids}">
+                    <f:selectItems value="#{selectionBean.districts}" var="dist" itemLabel="#{dist.districtName}" itemValue="#{dist.districtId}" />           
+
+                    <f:ajax event= "itemSelect" execute="district" render="taluka" listener="#{selectionBean.populateTalukas()}"/>
+                    <f:ajax event= "itemUnselect" execute="district" render="taluka" listener="#{selectionBean.populateTalukas()}"/>             
+                    <f:ajax event= "itemSelect" execute="district" render="city" listener="#{selectionBean.populateCities()}"/>
+                    <f:ajax event= "itemUnselect" execute="district" render="city" listener="#{selectionBean.populateCities()}"/>
+                </p:selectCheckboxMenu>
+
+                <h:outputLabel for="city" value="City"/>
+                <p:selectCheckboxMenu id="city"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Cities"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.cityids}">
+                    <f:selectItems value="#{selectionBean.cities}" var="ct" itemLabel="#{ct.cityName}" itemValue="#{ct.cityId}" />           
+
+                    <f:ajax event= "itemSelect" execute="city" render="zone" listener="#{selectionBean.populateZones()}"/>
+                    <f:ajax event= "itemUnselect" execute="city" render="zone" listener="#{selectionBean.populateZones()}"/>
+               </p:selectCheckboxMenu>
+
+                <h:outputLabel for="zone" value="zone"/>
+                <p:selectCheckboxMenu id="zone"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Zones"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.zoneids}">
+                    <f:selectItems value="#{selectionBean.zones}" var="z" itemLabel="#{z.zoneName}" itemValue="#{z.zoneId}" />           
+
+                    <f:ajax event= "itemSelect" execute="zone" render="ward" listener="#{selectionBean.populateWards()}"/>
+                    <f:ajax event= "itemUnselect" execute="city" render="zone" listener="#{selectionBean.populateWards()}"/>
+               </p:selectCheckboxMenu>
+                
+                <h:outputLabel for="ward" value="Ward"/>
+                <p:selectCheckboxMenu id="ward"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Wards"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.wardids}">
+                    <f:selectItems value="#{selectionBean.wards}" var="w" itemLabel="#{w.wardName}" itemValue="#{w.wardId}" />           
+
+               </p:selectCheckboxMenu>
+                
+                <h:outputLabel for="taluka" value="Taluka"/>
+                <p:selectCheckboxMenu id="taluka"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Talukas"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.talukaids}">
+                    <f:selectItems value="#{selectionBean.talukas}" var="t" itemLabel="#{t.talukaName}" itemValue="#{t.talukaId}" />           
+
+                    <f:ajax event= "itemSelect" execute="taluka" render="village" listener="#{selectionBean.populateVillages()}"/>
+                    <f:ajax event= "itemUnselect" execute="taluka" render="village" listener="#{selectionBean.populateVillages()}"/>
+               </p:selectCheckboxMenu>
+                
+                <h:outputLabel for="village" value="Village"/>
+                <p:selectCheckboxMenu id="village"
+                                      dynamic="true"
+                                      filter="true" filterMatchMode="startsWith"
+                                      label="Select Villages"
+                                      style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                                      value="#{selectionBean.villageids}">
+                    <f:selectItems value="#{selectionBean.villages}" var="v" itemLabel="#{v.villageName}" itemValue="#{v.villageId}" />           
+
+                </p:selectCheckboxMenu>
+                
+                
+                
+                <h:commandButton id="cmd" value="Show" action="#{selectionBean.show()}"/>       
+
+
+
+
+
+            </h:panelGrid>    
+
+
+
+        </h:form>
+
+    </h:body>
+</html>

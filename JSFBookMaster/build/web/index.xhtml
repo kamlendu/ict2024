@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:h="http://java.sun.com/jsf/html">
+      
+    
+<ui:composition template="newTemplate.xhtml">
+    <ui:define name="top"> Great Things may not look good</ui:define>
+    <ui:define name="left"> <ul>
+                        <li> One </li>
+                        <li> Two </li>
+                        <li> Three </li>
+                        <li> Four </li>
+
+                    </ul></ui:define>
+     <ui:define name="content">
+        <h:form>
+           
+            <br></br>
+            <h:outputText value="Book Name :- "></h:outputText>
+            <h:inputText value="#{BookMasterBean.bookName}"></h:inputText>
+<br></br><br></br>
+            <h:outputText value="Author Name :- "></h:outputText>
+            <h:inputText value="#{BookMasterBean.authorName}"></h:inputText>
+
+            <br></br><br></br>
+            <h:outputText value="Publisher Name :- "></h:outputText>
+            <h:inputText value="#{BookMasterBean.publisherName}"></h:inputText>
+<br></br><br></br>
+            <h:commandButton value="Add" action="#{BookMasterBean.addBook}"></h:commandButton>
+            <br></br>
+        </h:form>      
+
+     </ui:define>
+</ui:composition>
+
+
+</html>

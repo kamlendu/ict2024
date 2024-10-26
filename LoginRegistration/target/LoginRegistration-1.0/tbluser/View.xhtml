@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTbluserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTbluserLabel_userId}"/>
+                    <h:outputText value="#{tbluserController.selected.userId}" title="#{bundle.ViewTbluserTitle_userId}"/>
+                    <h:outputText value="#{bundle.ViewTbluserLabel_username}"/>
+                    <h:outputText value="#{tbluserController.selected.username}" title="#{bundle.ViewTbluserTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewTbluserLabel_password}"/>
+                    <h:outputText value="#{tbluserController.selected.password}" title="#{bundle.ViewTbluserTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewTbluserLabel_emailAddress}"/>
+                    <h:outputText value="#{tbluserController.selected.emailAddress}" title="#{bundle.ViewTbluserTitle_emailAddress}"/>
+                    <h:outputText value="#{bundle.ViewTbluserLabel_contactNo}"/>
+                    <h:outputText value="#{tbluserController.selected.contactNo}" title="#{bundle.ViewTbluserTitle_contactNo}"/>
+                    <h:outputText value="#{bundle.ViewTbluserLabel_residentialAddress}"/>
+                    <h:outputText value="#{tbluserController.selected.residentialAddress}" title="#{bundle.ViewTbluserTitle_residentialAddress}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tbluserController.destroyAndView}" value="#{bundle.ViewTbluserDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTbluserEditLink}"/>
+                <br />
+                <h:commandLink action="#{tbluserController.prepareCreate}" value="#{bundle.ViewTbluserCreateLink}" />
+                <br />
+                <h:commandLink action="#{tbluserController.prepareList}" value="#{bundle.ViewTbluserShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTbluserIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

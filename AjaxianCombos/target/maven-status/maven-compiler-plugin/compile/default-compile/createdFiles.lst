@@ -1,0 +1,12 @@
+entity/Talukatb.class
+it/ajaxiancombos/JakartaRestConfiguration.class
+entity/Wardtb.class
+entity/Statetb.class
+entity/Zonetb.class
+entity/Villagetb.class
+entity/Citytb.class
+ejb/LogicBean.class
+it/ajaxiancombos/resources/JakartaEE8Resource.class
+beans/PopulateBean.class
+beans/SelectionBean.class
+entity/Districttb.class

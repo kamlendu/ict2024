@@ -6,6 +6,10 @@ package beans;
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -85,7 +89,18 @@ public class Person {
         this.city = city;
     }
     
-    
+    public void validateSalary(FacesContext ctx, UIComponent comp, Object val)
+    {
+        Double sal = (Double)val;
+        
+        if(sal< 2000)
+        {
+            FacesMessage msg = new FacesMessage("Salary can not be less than 2000");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+        }
+        
+    }
     
     
     public String handle()

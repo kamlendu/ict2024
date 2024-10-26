@@ -15,11 +15,16 @@
             <h:outputLabel for="p" value="Name"/>
             <h:inputText id="p" required="true" requiredMessage="Name can not be blank"   value="#{person.pname}"/> 
             <h:outputLabel for="pass" value="Password"/>
-            <h:inputSecret id="pass" value="#{person.password}"/>           
+            <h:inputText id="pass" value="#{person.password}"/>           
             <h:outputLabel for="email" value="Email"/>
-            <h:inputText id="email" value="#{person.email}"/>           
-             <h:outputLabel for="sal" value="Salary"/>
-            <h:inputText id="sal" value="#{person.salary}"/>  
+            <h:inputText id="email" value="#{person.email}">
+             <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>
+            </h:inputText>   
+            <h:outputLabel for="sal" value="Salary"/>
+            <h:inputText id="sal" value="#{person.salary}">
+                <f:validator validatorId="salvalidate"/>
+                <!--<f:validateLongRange minimum="1000" maximum="10000"/>-->  
+            </h:inputText>
            
             <h:outputLabel for="gen" value="Gender"/>
             

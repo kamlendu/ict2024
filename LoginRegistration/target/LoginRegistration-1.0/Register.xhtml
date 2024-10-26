@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+            body{
+                font-size: 1.3em;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <center>
+                <h3>User Registration</h3>
+                <h:messages id="hmsg" layout="list"  />
+                <table style="background: whitesmoke;">
+                    <tr>
+                        <td>
+                            Username :
+                        </td>
+                        <td>
+                            <h:inputText value="#{registerBean.userName}" id="username" required="true" requiredMessage="Username cannot be empty" >
+                                <f:ajax event="valueChange" execute="username" render="msg" listener="#{registerBean.checkUsername}"/>
+
+                            </h:inputText>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Password :
+                        </td>
+                        <td>
+                            <h:inputSecret value="#{registerBean.password}"  required="true" requiredMessage="Password cannot be empty" />
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Email Address :
+                        </td>
+                        <td>
+                            <h:inputText id ="emailaddress" value="#{registerBean.emailAddress }" validatorMessage="Email Address invalid."
+                                         required="true" requiredMessage="Email Address cannot be empty">
+                                <f:ajax event="valueChange" execute="emailaddress" render="msg" listener="#{registerBean.checkEmail}"/>
+                                <f:validateRegex pattern=".+@.+\..+"/>
+                            </h:inputText>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Contact No :
+                        </td>
+                        <td>
+                            <h:inputText value="#{registerBean.contactNo }"  required="true" requiredMessage="Contact No cannot be empty" validatorMessage="Contact No can only contain numbers">
+                                <f:validateRegex pattern="[0-9]+"/>
+                            </h:inputText>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Residential Address :
+                        </td>
+                        <td>
+                            <h:inputTextarea rows="3" cols="30" value="#{registerBean.residentialAddress }"  required="true" requiredMessage="Address cannot be empty" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <h:commandButton value="Register" action="#{registerBean.register}">
+                                <f:ajax event="action" execute="@form" render="msg hmsg"/>
+                            </h:commandButton>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <h:outputText escape="false"  id="msg" value="#{registerBean.msg}"/>
+                        </td>
+                    </tr>
+
+                </table>
+                <a href="index.jsf">Login</a>
+            </center>
+        </h:form>
+    </h:body>
+</html>
+
