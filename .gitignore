@@ -28,3 +28,6 @@
 /JSFApp/target/
 /TemplateApp/target/
 /MySecurityApp/target/
+/HashWebApp/build/
+/HashWebApp/dist/
+/HashWebApp/nbproject/private/
