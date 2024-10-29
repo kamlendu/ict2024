@@ -1,0 +1,40 @@
+database : test 
+jndi : jdbc/mysql
+
+
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `groups` (
+  `GROUPNAME` varchar(100) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+// data
+
+mysql> select * from users;
++----------+---------------------------------------------------------------------------------------------------------------------+
+| username | password                                                                                                            |
++----------+---------------------------------------------------------------------------------------------------------------------+
+| admin    | PBKDF2WithHmacSHA256:2048:uS4W774WdYj872LVuRSMujHdgqEVf7yPGZw6MGbgKI8=:VVT3CD1wfVvkQ7ct2eCNWUKr6GuMFztvJPOUgD1MybU= |
+| user     | PBKDF2WithHmacSHA256:2048:ooL0ULgBf6Fq0YurXBIKMjWWrqOukulRBqAXzFjExys=:Gh8g16d69tWZVltJVRc17GweywmXVr1+eTl7FyKgdxQ= |
++----------+---------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * fro groups;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fro groups' at line 1
+mysql> select * from groups;
++------------+----------+
+| GROUPNAME  | username |
++------------+----------+
+| Admin      | admin    |
+| Supervisor | user     |
++------------+----------+
+2 rows in set (0.00 sec)
+
+
