@@ -1,4 +1,9 @@
 it/mysecurityapp/resources/JakartaEE8Resource.class
-it/mysecurityapp/JakartaRestConfiguration.class
-servlet/SecureServlet.class
 config/Project.class
+client/RestClient.class
+it/mysecurityapp/JakartaRestConfiguration.class
+ejb/SecureBean.class
+client/RestClient$1.class
+servlet/SecureServlet.class
+record/KeepRecord.class
+auth/UserAuthentication.class

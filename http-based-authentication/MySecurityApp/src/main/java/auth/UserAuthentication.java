@@ -26,79 +26,87 @@ import record.KeepRecord;
  *
  * @author root
  */
+
 @Named
 @RequestScoped
 public class UserAuthentication implements HttpAuthenticationMechanism, Serializable {
 @Inject IdentityStoreHandler ish;
 CredentialValidationResult result;
+AuthenticationStatus status;
+     
     @Override
     public AuthenticationStatus validateRequest(HttpServletRequest request, HttpServletResponse response, HttpMessageContext ctx) throws AuthenticationException {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    
+    try{
+        
         if(request.getRequestURI().contains("logout"))
         {
-            try{
-                request.logout();
-                KeepRecord.reset();            
-                response.sendRedirect("index.jsp");
-            }
-            catch(Exception e)
-            {
-                return ctx.doNothing();
-            }
+            request.logout();
+            KeepRecord.reset();
+            response.sendRedirect("index.jsp");
+            return ctx.doNothing();
         }
+        
         
         
         if(request.getRequestURI().contains("index.jsp") && request.getParameter("username")!=null)
         {
-            try{
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             
             Credential credential = new UsernamePasswordCredential(username, new Password(password));
+            
             result = ish.validate(credential);
             
             if(result.getStatus()== VALID)
             {
-                ctx.notifyContainerAboutLogin(result);
+                status = ctx.notifyContainerAboutLogin(result);
+                
+                request.setAttribute("user", result.getCallerPrincipal().getName());
+                
                 KeepRecord.setUsername(username);
                 KeepRecord.setPassword(password);
-                request.setAttribute("user", result.getCallerPrincipal().getName());
+                
                 if(result.getCallerGroups().contains("Admin"))
                 {
                     request.getRequestDispatcher("/admin.jsp").forward(request, response);
+                    return status;
                 }
-                else if(result.getCallerGroups().contains("Supervisor"))
-                 {
-                   request.getRequestDispatcher("/users.jsp").forward(request, response);
-            
-                 }
-               
+               else if(result.getCallerGroups().contains("Supervisor"))
+                {
+                    request.getRequestDispatcher("/users.jsp").forward(request, response);
+                    return status;
+                }
+                
             }
             else
             {
-                 request.setAttribute("error", "Either username or password is wrong");
-                 request.getRequestDispatcher("/index.jsp").forward(request, response);
-            
-            }
-            
-            }
-            catch(Exception e)
-            {
+                request.setAttribute("error", "Either username or password is wrong");
+                  request.getRequestDispatcher("/index.jsp").forward(request, response);
+                  
                 return ctx.doNothing();
             }
+            
+        
+        
         }
-        else if(KeepRecord.getUsername()!=null)
+        else if (KeepRecord.getUsername()!=null)
         {
             Credential credential = new UsernamePasswordCredential(KeepRecord.getUsername(), new Password(KeepRecord.getPassword()));
-            result = ish.validate(credential);
-         ctx.notifyContainerAboutLogin(result);
             
+            result = ish.validate(credential);
+           status= ctx.notifyContainerAboutLogin(result);
+           return status;
         }
-    
+        
+    }
+    catch(Exception e)
+    {
+        return ctx.doNothing();
+    }
     return ctx.doNothing();
     }
-    
+   
     
     
 }

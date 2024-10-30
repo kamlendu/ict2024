@@ -1,4 +1,8 @@
-/root/NetBeansProjects/ict2024/MySecurityApp/src/main/java/it/mysecurityapp/JakartaRestConfiguration.java
-/root/NetBeansProjects/ict2024/MySecurityApp/src/main/java/config/Project.java
-/root/NetBeansProjects/ict2024/MySecurityApp/src/main/java/it/mysecurityapp/resources/JakartaEE8Resource.java
-/root/NetBeansProjects/ict2024/MySecurityApp/src/main/java/servlet/SecureServlet.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/it/mysecurityapp/resources/JakartaEE8Resource.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/config/Project.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/record/KeepRecord.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/it/mysecurityapp/JakartaRestConfiguration.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/auth/UserAuthentication.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/ejb/SecureBean.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/client/RestClient.java
+/root/NetBeansProjects/ict2024/http-based-authentication/MySecurityApp/src/main/java/servlet/SecureServlet.java

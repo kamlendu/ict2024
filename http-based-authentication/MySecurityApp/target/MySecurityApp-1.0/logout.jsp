@@ -17,12 +17,12 @@
     <body>
         <%
             
-       request.logout();
-       session.invalidate();
+      // request.logout();
+      // session.invalidate();
       // KeepRecord.reset();
 //        
     // request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-       response.sendRedirect("index.jsp");
+       //response.sendRedirect("index.jsp");
         %>
     </body>
 </html>

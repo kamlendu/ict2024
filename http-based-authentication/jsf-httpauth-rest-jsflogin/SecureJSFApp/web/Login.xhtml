@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:panelGrid id="grid" columns="2">
+            <h:outputLabel id="ulbl" for="user" value="User"/>
+            <h:inputText id="user" value="#{loginBean.username}"/>
+            <h:outputLabel id="plbl" for="pass" value="Password"/>
+             <h:inputSecret id="pass" value="#{loginBean.password}"/>
+             <h:commandButton id="submit" value="Login" action="#{loginBean.login()}"/>
+  
+        </h:panelGrid>
+        </h:form>
+        <h:outputText id="err" style="color:red" value="#{loginBean.errorStatus}"/>
+    </h:body>
+</html>
+

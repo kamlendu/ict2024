@@ -1,0 +1,12 @@
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/rest/ApplicationConfig.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/client/SecureClient.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/it/jsfsecurityapp/resources/JakartaEE8Resource.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/rest/SecureResource.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/beans/HelloBean.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/it/jsfsecurityapp/JakartaRestConfiguration.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/config/Project.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/record/KeepRecord.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/beans/LoginBean.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/filter/RestFilter.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/ejb/SecureBean.java
+/root/NetBeansProjects/ict2024/filer-based-authentication/JSFSecurityApp/src/main/java/filter/NoCacheFilter.java
