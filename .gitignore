@@ -31,3 +31,10 @@
 /HashWebApp/build/
 /HashWebApp/dist/
 /HashWebApp/nbproject/private/
+/jwt-based-security/SecurityApp/target/
+/jwt-based-security/jsf-jwt-security-htmllogin/SecureJSFApp/target/
+/jwt-based-security/jsf-jwt-security-jsflogin/SecureJSFApp/build/
+/jwt-based-security/jsf-jwt-security-jsflogin/SecureJSFApp/dist/
+/jwt-based-security/jsf-jwt-security-jsflogin/SecureJSFApp/nbproject/private/
+/TrialJava/nbproject/private/
+/TrialJava/build/
