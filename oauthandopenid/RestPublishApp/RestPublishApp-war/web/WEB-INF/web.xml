@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--    <filter>
+        <description>To intercept the login form values</description>
+        <filter-name>WebApplicationFilterFilter</filter-name>
+        <filter-class>client.WebApplicationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>WebApplicationFilterFilter</filter-name>
+        <url-pattern>/jaas/*</url-pattern>
+    </filter-mapping>-->
+<!--    <filter>
+        <filter-name>RestJWTFilter</filter-name>
+        <filter-class>RestJWTFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RestJWTFilter</filter-name>
+        <url-pattern>/webresources/*</url-pattern>
+    </filter-mapping>-->
+    <servlet>
+        <servlet-name>PubRestServlet</servlet-name>
+        <servlet-class>servlets.PubRestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>servlets.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PubRestServlet</servlet-name>
+        <url-pattern>/PubRestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>Welcome</welcome-file>
+    </welcome-file-list>
+    
+    
+</web-app>

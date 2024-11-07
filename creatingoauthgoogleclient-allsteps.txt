@@ -1,0 +1,13 @@
+Steps to create OAuth/ OpenIdConnect Project on Google
+
+1. Visit https://console.cloud.google.com
+2.Create a new Project. name it anything
+3. Now In Dashboard tab. Scroll down in section Getting Started
+4. Click Explore and Enable APIs.
+5. In left hand panel . click create credentials button
+6. Create Consent Sreen for OAuth
+6. Click Create Credential for Application
+7.Specify the project type i.e Web Application
+8. Give base URI of the project
+9. Give Redirect URI and then press create. 
+10. Your application will be created. click the application. you will be getting ClientID and Client Secret which we use it in Java Project
